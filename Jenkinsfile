@@ -16,7 +16,7 @@ agent any
   }
   stage ("Generate backend image") {
     steps {
-      dir ("exp1-spring") {
+      dir ("jenkinspring") {
         sh "mvn clean install"
         sh "docker build -t docexp1-spring ."
       }
@@ -24,7 +24,7 @@ agent any
   }
   stage ("Run docker compose") {
     steps {
-      dir("exp1-spring") {
+      dir("jenkinspring") {
         sh "docker compose up -d"
       }
     }
